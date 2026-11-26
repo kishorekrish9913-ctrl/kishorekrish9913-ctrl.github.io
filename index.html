@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kishore Thummisetty Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE a product manager's portfolio in the dark, minimal style the person chose
+   IDEA a PM fellowship profile page: identity card on top, project cards that open into full case studies
+   PICTURE the identity card (name, headline, monogram) then the featured project with its workflow drawn
+   COLOUR near-black ground in both themes, white ink, grey for secondary text, coral accent for results
+   TYPE Outfit 700 display + Inter text
+   LAYOUT laptop: name left, monogram right, then featured project, 2-column card grid, lists; phone: one column */
+:root{color-scheme:dark;--bg:#0d0d0d;--card:#171717;--line:#2a2a2a;--ink:#f5f5f5;--soft:#a3a3a3;--acc:#ff8a5c;--sys:#7cc4ff}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 max(5vw,16px)}
+h1,h2,h3{font-family:Outfit,Inter,sans-serif;line-height:1.08;letter-spacing:-.02em;margin:0;text-wrap:balance}
+h1{font-size:clamp(38px,6vw,56px);font-weight:700}
+h2{font-size:clamp(26px,3.4vw,32px);font-weight:700}
+h3{font-size:20px;font-weight:700}
+.top{padding:28px 0 8px;display:flex;justify-content:space-between;align-items:center;font-family:Outfit,sans-serif;font-weight:700;font-size:18px}
+.top a{text-decoration:none}
+.id{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 40px;align-items:center;padding:40px 0 44px;border-bottom:1px solid var(--line)}
+.head{font-weight:600;color:var(--soft);margin:14px 0 0;font-size:17px}
+.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.lnk{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border:1px solid var(--line);border-radius:8px;text-decoration:none;font-weight:600;background:var(--card)}
+.lnk:hover,.lnk:focus-visible{border-color:var(--ink);outline:none}
+.lnk svg{width:18px;height:18px}
+.mono{width:clamp(120px,16vw,168px);aspect-ratio:1;border-radius:16px;background:linear-gradient(145deg,#262626,#151515);border:1px solid var(--line);display:grid;place-items:center;font-family:Outfit,sans-serif;font-weight:700;font-size:clamp(44px,6vw,60px);color:var(--acc)}
+section.blk{padding:44px 0;border-bottom:1px solid var(--line)}
+.label{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px}
+.label h2 a{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
+.feat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:clamp(20px,3vw,30px);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px 36px;align-items:start}
+.feat p{color:var(--soft);margin:10px 0 0}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:8px;background:var(--ink);color:var(--bg);font-weight:600;text-decoration:none;margin-top:18px}
+.btn:hover,.btn:focus-visible{background:var(--acc);outline:none}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);margin-left:8px}
+.btn.ghost:hover,.btn.ghost:focus-visible{border-color:var(--ink);background:transparent}
+.shot{margin:16px 0 0;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.shot img{display:block;width:100%;height:auto}
+.repo{display:inline-flex;align-items:center;min-height:44px;margin-top:14px;font-weight:600;color:var(--sys)}
+.flow{display:grid;gap:10px}
+.flow .row{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.node{border:1.5px solid var(--sys);color:var(--sys);border-radius:8px;padding:6px 10px;font-size:13px;font-weight:600}
+.node.core{background:var(--sys);color:var(--bg)}
+.arr{color:var(--sys);font-weight:700}
+.subs{display:flex;flex-wrap:wrap;gap:6px;padding-left:12px;border-left:2px dashed var(--sys)}
+.subs .node{border-style:dashed;font-weight:500}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;text-decoration:none;transition:border-color .2s}
+.card:hover,.card:focus-visible{border-color:var(--soft);outline:none}
+.card .tag{font-size:13px;color:var(--soft);font-weight:500}
+.card h3{margin:8px 0 10px}
+.card p{margin:0;color:var(--soft);font-size:15px;flex:1}
+.card .num{margin-top:16px;display:flex;align-items:baseline;gap:10px;font-size:14px;color:var(--soft)}
+.card .num b{font-family:Outfit,sans-serif;font-size:30px;color:var(--acc);line-height:1;white-space:nowrap}
+.card .go{margin-top:14px;font-weight:600;font-size:14px}
+.list{list-style:none;margin:0;padding:0}
+.list>li{display:grid;grid-template-columns:minmax(0,1fr) max-content;gap:4px 24px;padding:18px 0;border-top:1px solid var(--line)}
+.list>li:first-child{border-top:0;padding-top:0}
+.list .r{color:var(--soft);font-size:15px;margin-top:2px}
+.list .d{color:var(--soft);font-size:14px;white-space:nowrap;text-align:right}
+.list ul{grid-column:1/-1;margin:6px 0 0;padding-left:18px;color:var(--soft);font-size:15px}
+.list ul li{padding:2px 0}
+.sub{grid-column:1/-1;display:grid;gap:6px;margin-top:8px}
+.sub div{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 16px;font-size:15px;color:var(--soft);padding-left:14px;border-left:2px solid var(--line)}
+.sub span:last-child{white-space:nowrap}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--ink)}
+.write{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;text-decoration:none}
+.write:hover,.write:focus-visible{border-color:var(--soft);outline:none}
+.write .k{font-size:13px;color:var(--soft)}
+.write b{display:block;font-weight:600}
+footer{padding:40px 0 56px;color:var(--soft);font-size:15px}
+footer .c{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:10px;color:var(--ink)}
+/* case pages */
+.casepage{display:none;padding:28px 0 56px}
+.casepage:target{display:block}
+body:has(.casepage:target) .home{display:none}
+.back{display:inline-flex;align-items:center;min-height:44px;font-weight:600;text-decoration:none;color:var(--soft)}
+.back:hover,.back:focus-visible{color:var(--ink);outline:none}
+.ch{padding:18px 0 28px;border-bottom:1px solid var(--line)}
+.ch .tag{color:var(--soft);font-weight:500}
+.ch h1{font-size:clamp(32px,5vw,46px);margin-top:8px}
+.ch .chips{margin-top:16px}
+.kpi{display:flex;align-items:baseline;gap:12px;margin-top:20px;color:var(--soft)}
+.kpi b{font-family:Outfit,sans-serif;font-size:clamp(40px,6vw,56px);color:var(--acc);line-height:1}
+.sec{display:grid;grid-template-columns:200px minmax(0,1fr);gap:8px 32px;padding:22px 0;border-bottom:1px solid var(--line)}
+.sec h3{font-size:17px;color:var(--soft);font-weight:600}
+.sec h3.val{color:var(--acc)}
+.sec p{margin:0;font-size:17px}
+.visual{margin:28px 0 8px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px clamp(16px,3vw,28px)}
+.visual .cap{margin:0 0 16px;color:var(--soft);font-size:15px}
+.visual .cap b{color:var(--ink)}
+.track{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.track::before{content:"";position:absolute;left:10%;right:10%;top:32px;height:3px;background:var(--sys)}
+.stop{text-align:center}
+.dot{width:66px;height:66px;margin:0 auto;border-radius:50%;background:var(--bg);border:3px solid var(--sys);display:grid;place-items:center;font-weight:700;font-size:14px;color:var(--sys);position:relative;z-index:1}
+.stop:first-child .dot,.stop:last-child .dot{background:var(--sys);color:var(--bg)}
+.stop h4{margin:10px 0 2px;font-size:15px}
+.stop span{font-size:13px;color:var(--soft);line-height:1.4;display:block}
+.token{position:absolute;top:26px;left:10%;width:15px;height:15px;border-radius:50%;background:var(--acc);z-index:2;animation:go 6s ease-in-out infinite}
+@keyframes go{0%{left:10%;opacity:0}8%{opacity:1}90%{opacity:1}100%{left:calc(90% - 15px);opacity:0}}
+.rules{width:100%;border-collapse:collapse;margin-top:18px;font-size:15px}
+.rules th{text-align:left;padding:8px 14px 8px 0;white-space:nowrap;vertical-align:top}
+.rules td{padding:8px 0;border-bottom:1px solid var(--line);color:var(--soft)}
+.p-high{color:var(--acc)}.p-medium{color:var(--sys)}.p-low{color:var(--soft)}
+@media(max-width:760px){.feat{grid-template-columns:minmax(0,1fr)}.grid{grid-template-columns:minmax(0,1fr)}.sec{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){
+.id{grid-template-columns:minmax(0,1fr)}.mono{grid-row:1;width:96px;font-size:36px;border-radius:12px}
+.list>li{grid-template-columns:minmax(0,1fr)}.list .d{text-align:left}
+.write{grid-template-columns:minmax(0,1fr)}
+.track{grid-template-columns:minmax(0,1fr);gap:0}
+.track::before{left:32px;right:auto;top:33px;bottom:33px;width:3px;height:auto}
+.stop{display:grid;grid-template-columns:66px minmax(0,1fr);gap:0 14px;text-align:left;align-items:center;padding:7px 0}
+.stop h4{margin:0}.token{display:none}
+}
+@media(prefers-reduced-motion:reduce){.token{display:none}html{scroll-behavior:auto}.card{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a href="#">Kishore Thummisetty</a></div>
+
+  <main class="home">
+    <header class="id">
+      <div>
+        <h1>Kishore Thummisetty</h1>
+        <p class="head">AI/ML Product Owner | B2B | Enterprise AI, Automation &amp; System Design</p>
+        <div class="links">
+          <a class="lnk" href="resume.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></svg>Resume</a>
+          <a class="lnk" href="https://www.linkedin.com/in/kishore-kumar-43a0413b9"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9h3.5v11H4zM5.7 3.5a2 2 0 110 4 2 2 0 010-4zM10 9h3.3v1.6c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.3 4.3 5.4V20h-3.5v-5.2c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V20H10z"/></svg>LinkedIn</a>
+          <a class="lnk" href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="mono" aria-hidden="true">KT</div>
+    </header>
+
+    <section class="blk">
+      <div class="label"><h2>Featured project</h2></div>
+      <div class="feat">
+        <div>
+          <h3>AI Customer Complaint Triage</h3>
+          <p>An n8n workflow where Google Gemini reads each complaint and returns a summary, category, priority and reason as JSON. Every complaint is logged and sent to support in seconds, with no manual work.</p>
+          <a class="btn" href="#case-triage">Read case study</a>
+          <a class="btn ghost" href="https://github.com/kishorekrish9913-ctrl/n8n-workflows">View on GitHub</a>
+        </div>
+        <div class="flow" aria-label="Workflow">
+          <div class="row"><span class="node">Complaint form</span><span class="arr">→</span><span class="node core">Gemini extractor</span><span class="arr">→</span><span class="node">Sheets log</span><span class="arr">→</span><span class="node">Gmail alert</span></div>
+          <div class="subs"><span class="node">summary</span><span class="node">category</span><span class="node">priority</span><span class="node">reason</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="blk" id="projects">
+      <div class="label"><h2>Projects</h2></div>
+      <div class="grid" id="cards"></div>
+    </section>
+
+    <section class="blk">
+      <div class="label"><h2>Writing &amp; links</h2></div>
+      <a class="write" href="https://www.linkedin.com/in/kishore-kumar-43a0413b9/recent-activity/all/">
+        <span class="k">LinkedIn post</span>
+        <span><b>I built an AI-powered Customer Complaint Workflow in n8n</b><span class="k">Form trigger, Gemini information extractor, prompt rules, Sheets and Gmail</span></span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    </section>
+
+    <section class="blk">
+      <div class="label"><h2>Work experience</h2></div>
+      <ul class="list">
+        <li>
+          <div><h3>Associate Engineering Manager (Product Owner)</h3><div class="r">Virtusa Consulting</div></div>
+          <div class="d">Sep 2022 – Present</div>
+          <ul>
+            <li>Delivered 20+ automation products, cutting manual effort 40% and processing time 30%.</li>
+            <li>Discovered 40+ automation opportunities via hypothesis-led brainstorming; wrote PRDs and ROI cases for the roadmap.</li>
+            <li>Launched AI/ML solutions, including predictive analytics for process optimisation and intelligent customer-support bots.</li>
+            <li>Delivered 95% of releases on time and cut delivery cycles 20% by leading UX, architects, developers and QA in agile teams.</li>
+          </ul>
+        </li>
+        <li>
+          <div><h3>Tata Group</h3><div class="r">Business analysis and operations</div></div>
+          <div class="d">Dec 2013 – Sep 2022</div>
+          <div class="sub">
+            <div><span>Assistant Manager – Senior Business Analyst, Tata Communications, Pune</span><span>Aug 2019 – Sep 2022</span></div>
+            <div><span>Assistant Manager, Tata Teleservices, Hyderabad</span><span>Aug 2017 – Aug 2019</span></div>
+            <div><span>Network Engineer, Tata Communications Transformation Services</span><span>Dec 2013 – Jun 2017</span></div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="blk">
+      <div class="label"><h2>Skills</h2></div>
+      <div class="chips" id="skills"></div>
+    </section>
+
+    <section class="blk">
+      <div class="label"><h2>Education &amp; awards</h2></div>
+      <ul class="list">
+        <li><div><h3>PGDM, Business &amp; AI</h3><div class="r">Scalar</div></div><div class="d">In progress</div></li>
+        <li><div><h3>B.Tech, Electronics &amp; Communication Engineering</h3></div><div class="d">2013</div></li>
+        <li><div><h3>Awards</h3><div class="r">Star Performer (FY24, FY25) · Middle East Dream Team (FY23) · Tata Communications GEM &amp; Innovation awards</div></div></li>
+      </ul>
+    </section>
+  </main>
+
+  <div id="pages"></div>
+
+  <footer id="contact">
+    <h2>Get in touch</h2>
+    <div class="c">
+      <a href="mailto:Kishorekrish9913@gmail.com">Kishorekrish9913@gmail.com</a>
+      <a href="https://www.linkedin.com/in/kishore-kumar-43a0413b9">linkedin.com/in/kishore-kumar-43a0413b9</a>
+      <span>Hyderabad, India</span>
+    </div>
+  </footer>
+</div>
+
+<script>
+{
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const ROUTE=`<div class="visual"><p class="cap"><b>How an order travels through the E-Shop.</b> Power Apps front end, middleware and ERP, connected by REST APIs.</p>
+<div class="track"><div class="token" aria-hidden="true"></div>
+<div class="stop"><div class="dot">App</div><div><h4>Power Apps</h4><span>Employee checks eligibility and orders</span></div></div>
+<div class="stop"><div class="dot">DG</div><div><h4>Data Gateway</h4><span>Secure link to on-premises data</span></div></div>
+<div class="stop"><div class="dot">API</div><div><h4>API Gateway</h4><span>Authenticates and governs calls</span></div></div>
+<div class="stop"><div class="dot">ESB</div><div><h4>ESB</h4><span>Routes and transforms messages</span></div></div>
+<div class="stop"><div class="dot">ERP</div><div><h4>ERP</h4><span>Order, stock and billing recorded</span></div></div>
+</div></div>`;
+const TRIAGE=`<div class="visual"><p class="cap"><b>The workflow in n8n.</b> Gemini returns the same four JSON fields for every complaint.</p>
+<div class="flow"><div class="row"><span class="node">Complaint form</span><span class="arr">→</span><span class="node core">Gemini extractor</span><span class="arr">→</span><span class="node">Sheets log</span><span class="arr">→</span><span class="node">Gmail alert</span></div>
+<div class="subs"><span class="node">summary</span><span class="node">category</span><span class="node">priority</span><span class="node">reason</span></div></div>
+<figure class="shot"><img loading="lazy" src="https://raw.githubusercontent.com/kishorekrish9913-ctrl/n8n-workflows/main/Ai%20Customer%20Complant%20Automation.png" alt="The complaint triage workflow in the n8n editor" onerror="this.closest('figure').remove()"></figure>
+<a class="repo" href="https://github.com/kishorekrish9913-ctrl/n8n-workflows">See the workflow files on GitHub ↗</a>
+<table class="rules"><tr><th class="p-high">High</th><td>Safety or contamination, major damage, wrong payment, several items affected</td></tr><tr><th class="p-medium">Medium</th><td>One significant service failure</td></tr><tr><th class="p-low">Low</th><td>Minor inconvenience, taste preference, general feedback</td></tr></table></div>`;
+
+const cases=[
+ {id:"triage",tag:"AI workflow · Customer support",name:"AI Customer Complaint Triage",teaser:"Gemini classifies, prioritises and routes every complaint as structured JSON.",stack:["n8n","Google Gemini","Information Extractor","JSON schema","Google Sheets","Gmail"],big:"0",note:"manual steps from complaint to support inbox",visual:TRIAGE,
+  rows:[["Problem","Reading and sorting customer complaints by hand is slow, and urgent issues can get missed."],
+   ["Solution","An n8n workflow: a form collects name, email, order ID and complaint; Google Gemini extracts a summary, category, priority and reason as JSON; each complaint is logged in Google Sheets and emailed to the support team."],
+   ["How I designed it","Wrote the system prompt with 7 fixed categories and explicit priority rules, gave the model a JSON example so output is always structured, and told it to use only the submitted complaint so it never invents details."],
+   ["Impact","Every complaint is classified, logged and emailed in seconds with no manual work, building a searchable complaint log."],
+   ["Business value","Safety and payment issues reach the support team first, so the most damaging complaints get fixed fastest."]]},
+ {id:"eshop",tag:"E-commerce · Employee self-service",name:"Employee Device E-Shop",teaser:"Replaced legacy ERP forms and manual signatures with a self-service store.",stack:["Microsoft Power Apps","Data Gateway","API Gateway","ESB","ERP","REST APIs"],big:"30%",note:"less manual effort, every transaction recorded digitally",visual:ROUTE,
+  rows:[["Problem","Employees bought devices through legacy ERP forms. Logistics had no workflow in ERP and delivered devices against manual signatures."],
+   ["Solution","Engineered a SaaS platform on Microsoft Power Apps, integrated with ERP through middleware and REST APIs, with automated eligibility, approvals, OTP verification and delivery tracking."],
+   ["How I delivered","Ran process discovery and problem identification, framed hypotheses, recommended a cost-effective, value-based solution and wrote the PRD. Worked with developers through prototypes, answered queries, cleared impediments, ran demos and took it live."],
+   ["Impact","Saved 30% of manual effort, increased device sales and revenue, and recorded every transaction digitally."],
+   ["Business value","Created a new revenue channel by selling old and new devices in bulk to employees at discounted prices."]]},
+ {id:"sales",tag:"B2B sales · Workflow",name:"Enterprise Sales Lifecycle Workflow",teaser:"One workflow from proposal to contract to activation.",stack:["IBM BPM","CRM","CMS","AI services"],big:"20%",note:"faster enterprise customer onboarding",
+  rows:[["Problem","Enterprise deals moved through manual handoffs between proposal, contract and activation."],
+   ["Solution","Built an end-to-end workflow integrated with CRM, CMS and AI, supporting standard and customised plans."],
+   ["Impact","Accelerated enterprise customer onboarding 20% and sped up proposal and contract movement."],
+   ["Business value","Faster activation brought enterprise revenue in sooner and gave sales a clear view of every deal stage."]]},
+ {id:"coe",tag:"Internal platform · Prioritisation",name:"COE Demand Management Platform",teaser:"Turned unstructured automation requests into one scored, prioritised pipeline.",stack:["Power Apps","Human-in-the-loop"],big:"25%",note:"faster request handling",
+  rows:[["Problem","Automation requests arrived unstructured, making them hard to assess, compare and prioritise."],
+   ["Solution","Defined and built an intake platform with opportunity assessment, complexity scoring and human approval."],
+   ["Impact","Cut request handling time 25% and created one pipeline for all automation demand."],
+   ["Business value","Directed automation investment to the highest-ROI opportunities, with full visibility for leadership."]]}
+];
+
+document.getElementById('cards').innerHTML=cases.map(c=>`
+ <a class="card" href="#case-${c.id}">
+  <span class="tag">${esc(c.tag)}</span>
+  <h3>${esc(c.name)}</h3>
+  <p>${esc(c.teaser)}</p>
+  <div class="num"><b>${esc(c.big)}</b><span>${esc(c.note)}</span></div>
+  <span class="go">Read case study →</span>
+ </a>`).join('');
+
+document.getElementById('pages').innerHTML=cases.map(c=>`
+ <article class="casepage" id="case-${c.id}">
+  <a class="back" href="#projects">← All projects</a>
+  <div class="ch">
+   <span class="tag">${esc(c.tag)}</span>
+   <h1>${esc(c.name)}</h1>
+   <div class="chips">${c.stack.map(s=>`<span class="chip">${esc(s)}</span>`).join('')}</div>
+   <div class="kpi"><b>${esc(c.big)}</b><span>${esc(c.note)}</span></div>
+  </div>
+  ${c.visual||''}
+  ${c.rows.map(([k,v])=>`<div class="sec"><h3${k==='Business value'?' class="val"':''}>${esc(k)}</h3><p>${esc(v)}</p></div>`).join('')}
+ </article>`).join('');
+
+const skills=["AI PRDs","Hypothesis-driven discovery","Brainstorming","Requirement gathering","User stories","ROI cases","Roadmaps","LLMs","RAG","Prompt design","Structured AI outputs","Human-in-the-loop design","n8n","RPA (UiPath)","System design","API & ERP integration","Power Apps","IBM BPM","ServiceNow","Scrum","Jira","SQL"];
+document.getElementById('skills').innerHTML=skills.map(s=>`<span class="chip">${esc(s)}</span>`).join('');
+
+const onHash=()=>{if(location.hash.startsWith('#case-'))window.scrollTo(0,0)};
+window.addEventListener('hashchange',onHash);
+onHash();
+}
+</script>
+</body>
+</html>
