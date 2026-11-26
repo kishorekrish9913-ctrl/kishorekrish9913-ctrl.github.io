@@ -79,6 +79,32 @@ section.blk{padding:44px 0;border-bottom:1px solid var(--line)}
 .write b{display:block;font-weight:600}
 footer{padding:40px 0 56px;color:var(--soft);font-size:15px}
 footer .c{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:10px;color:var(--ink)}
+.nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav .in{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 20px;padding:12px 0}
+.nav b{font-family:Outfit,sans-serif;font-size:18px}
+.nav ul{display:flex;flex-wrap:wrap;gap:0 18px;list-style:none;margin:0;padding:0}
+.nav a{text-decoration:none;color:var(--soft);font-weight:500;font-size:15px;padding:10px 0;display:inline-block}
+.nav a:hover,.nav a:focus-visible{color:var(--ink);outline:none}
+.open{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:14px;background:#11241a;border:1px solid #1f4d33;border-radius:999px;padding:6px 14px}
+.open i{width:8px;height:8px;border-radius:50%;background:#4ade80;flex:none}
+.about{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:28px 40px;align-items:start}
+.about p{margin:0 0 14px;font-size:17px;color:#d4d4d4}
+.about p.lead{font-family:Outfit,sans-serif;font-size:clamp(22px,2.6vw,26px);color:var(--ink);line-height:1.25}
+.qf{list-style:none;margin:0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:4px 18px}
+.qf li{display:grid;gap:2px;padding:12px 0;border-top:1px solid var(--line)}
+.qf li:first-child{border-top:0}
+.qf span{font-size:13px;color:var(--soft)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:28px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.stat b{display:block;font-family:Outfit,sans-serif;font-size:clamp(26px,3vw,34px);color:var(--acc);line-height:1.1}
+.stat span{font-size:14px;color:var(--soft)}
+.steps{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;border-top:3px solid var(--sys)}
+.step b{display:block;font-family:Outfit,sans-serif;font-size:17px;margin-bottom:6px}
+.step span{font-size:13px;color:var(--soft);line-height:1.45;display:block}
+@media(max-width:900px){.steps{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){.about{grid-template-columns:minmax(0,1fr)}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.steps{grid-template-columns:minmax(0,1fr)}}
 /* case pages */
 .casepage{display:none;padding:28px 0 56px}
 .casepage:target{display:block}
@@ -126,13 +152,14 @@ body:has(.casepage:target) .home{display:none}
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a href="#">Kishore Thummisetty</a></div>
+  <nav class="nav" aria-label="Main"><div class="in"><b>Kishore Thummisetty</b><ul><li><a href="#about">About</a></li><li><a href="#projects">Projects</a></li><li><a href="#experience">Experience</a></li><li><a href="#skills">Skills</a></li><li><a href="#contact">Contact</a></li></ul></div></nav>
 
   <main class="home">
     <header class="id">
       <div>
         <h1>Kishore Thummisetty</h1>
         <p class="head">AI/ML Product Owner | B2B | Enterprise AI, Automation &amp; System Design</p>
+        <div class="open"><i></i>Open to Product Owner, Product Manager and AI product roles</div>
         <div class="links">
           <a class="lnk" href="resume.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 13h6M9 17h6"/></svg>Resume</a>
           <a class="lnk" href="https://www.linkedin.com/in/kishore-kumar-43a0413b9"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9h3.5v11H4zM5.7 3.5a2 2 0 110 4 2 2 0 010-4zM10 9h3.3v1.6c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.3 4.3 5.4V20h-3.5v-5.2c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V20H10z"/></svg>LinkedIn</a>
@@ -141,6 +168,43 @@ body:has(.casepage:target) .home{display:none}
       </div>
       <div class="mono" aria-hidden="true">KT</div>
     </header>
+
+    <section class="blk" id="about">
+      <div class="label"><h2>About me</h2></div>
+      <div class="about">
+        <div>
+          <p class="lead">I turn complex business processes into products people actually use.</p>
+          <p>Over 11+ years, I've grown from network operations and business analysis into end-to-end product ownership, working with global teams to replace manual enterprise workflows with digital, automated and AI-powered solutions.</p>
+          <p>I bring structure to ambiguous problems. I start with discovery and a clear hypothesis, test it with prototypes, and measure the outcome. My strengths are AI PRDs, requirement gathering and system design.</p>
+          <p>I'm looking for Product Owner, Product Manager and AI product roles where I can build AI-driven products that solve real business problems.</p>
+        </div>
+        <ul class="qf">
+          <li><span>Experience</span>11+ years in B2B IT</li>
+          <li><span>Current role</span>Product Owner, Virtusa Consulting</li>
+          <li><span>Focus</span>Enterprise AI, automation and system design</li>
+          <li><span>Education</span>PGDM, Business &amp; AI (Scalar), in progress</li>
+          <li><span>Location</span>Hyderabad, India</li>
+        </ul>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>20+</b><span>automation products delivered</span></div>
+        <div class="stat"><b>40%</b><span>less manual effort</span></div>
+        <div class="stat"><b>95%</b><span>releases on time</span></div>
+        <div class="stat"><b>40+</b><span>automation opportunities found</span></div>
+      </div>
+    </section>
+
+    <section class="blk">
+      <div class="label"><h2>How I work</h2></div>
+      <div class="steps">
+        <div class="step"><b>Discover</b><span>Map the process and talk to users to find the real problem.</span></div>
+        <div class="step"><b>Hypothesise</b><span>Frame what should change and how we'll measure it.</span></div>
+        <div class="step"><b>Define</b><span>Write the PRD, user stories, ROI case and success metrics.</span></div>
+        <div class="step"><b>Prototype</b><span>Test early with users and developers before the full build.</span></div>
+        <div class="step"><b>Deliver</b><span>Run agile sprints, UAT and demos through to go-live.</span></div>
+        <div class="step"><b>Measure</b><span>Track adoption and outcomes, then refine.</span></div>
+      </div>
+    </section>
 
     <section class="blk">
       <div class="label"><h2>Featured project</h2></div>
@@ -172,7 +236,7 @@ body:has(.casepage:target) .home{display:none}
       </a>
     </section>
 
-    <section class="blk">
+    <section class="blk" id="experience">
       <div class="label"><h2>Work experience</h2></div>
       <ul class="list">
         <li>
@@ -200,7 +264,7 @@ body:has(.casepage:target) .home{display:none}
       </ul>
     </section>
 
-    <section class="blk">
+    <section class="blk" id="skills">
       <div class="label"><h2>Skills</h2></div>
       <div class="chips" id="skills"></div>
     </section>
